@@ -7,16 +7,17 @@ import (
 
 func main() {
 
-	var bus = &transport.Bus{}
-	var train = &transport.Train{}
-	var plane = &transport.Plane{}
+	var bus = transport.NewBus()
+	var train = transport.NewTrain()
+	var plane = transport.NewPlane()
+	var coach = transport.NewBus()
 
-	var route = &route.Route{}
+	var route = route.NewRoute()
 
 	route.AddTransport(bus)
 	route.AddTransport(train)
 	route.AddTransport(plane)
-	route.AddTransport(bus)
+	route.AddTransport(coach)
 
 	route.ShowTransport()
 }

@@ -5,10 +5,14 @@ import "fmt"
 type Bus struct {
 }
 
-func (bus Bus) BoardPassengers() {
+func NewBus() *Bus {
+	return &Bus{}
+}
+
+func (bus *Bus) BoardPassengers() {
 	fmt.Println("Автобус приймає пасажирів")
 }
 
-func (bus Bus) DropPassengers() {
+func (bus *Bus) DropPassengers() {
 	fmt.Println("Автобус висаджує пасажирів")
 }
