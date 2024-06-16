@@ -2,17 +2,22 @@ package route
 
 import (
 	"fmt"
-	"transport/transport"
 )
 
 type Route struct {
-	transportList []transport.PublicTransport
+	transportList []PublicTransport
 }
 
 func NewRoute() *Route {
 	return &Route{}
 }
-func (route *Route) AddTransport(transport transport.PublicTransport) {
+
+type PublicTransport interface {
+	BoardPassengers()
+	DropPassengers()
+}
+
+func (route *Route) AddTransport(transport PublicTransport) {
 	route.transportList = append(route.transportList, transport)
 }
 
